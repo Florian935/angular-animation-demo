@@ -1,0 +1,11 @@
+<h2>Fly In/Out</h2>
+
+<ul class="quotes">
+    <li [@flyInOut]="'in'" *ngFor="let quote of quotes">
+        <div class="inner" (click)="onRemove(quote)">
+            <span>{{ quote }}</span>
+        </div>
+    </li>
+</ul>
+
+<button (click)="onAdd()">Add quote</button>

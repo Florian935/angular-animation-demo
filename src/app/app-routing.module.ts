@@ -10,6 +10,13 @@ const routes: Routes = [
             ),
     },
     {
+        path: 'fly-in-out',
+        loadChildren: () =>
+            import('./pages/fly-in-out/fly-in-out.module').then(
+                (m) => m.FlyInOutModule
+            ),
+    },
+    {
         path: '',
         redirectTo: 'open-close',
         pathMatch: 'full',

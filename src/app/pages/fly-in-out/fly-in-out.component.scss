@@ -1,0 +1,23 @@
+.quotes {
+    list-style-type: none;
+    padding: 0;
+}
+
+.quotes li {
+    overflow: hidden;
+    margin: 0.5em 0;
+}
+
+.quotes li > .inner {
+    cursor: pointer;
+    background-color: #eee;
+    padding: 0.3rem 0.5em;
+    height: 1.6rem;
+    border-radius: 4px;
+}
+
+.quotes li:hover > .inner {
+    color: black;
+    background-color: #ddd;
+    transform: translateX(0.1em);
+}

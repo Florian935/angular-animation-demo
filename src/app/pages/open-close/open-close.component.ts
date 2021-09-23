@@ -6,7 +6,7 @@ import {
     transition,
     trigger,
 } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-open-close',
@@ -69,6 +69,11 @@ import { Component, OnInit } from '@angular/core';
                     ])
                 ),
             ]),
+            transition('* => closed', [animate('1s')]),
+            transition('* => open', [animate('0.5s')]),
+            transition('open <=> closed', [animate('0.5s')]),
+            transition('* => open', [animate('1s', style({ opacity: '*' }))]),
+            transition('* => *', [animate('1s')]),
         ]),
     ],
 })
