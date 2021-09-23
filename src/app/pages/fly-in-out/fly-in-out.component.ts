@@ -14,11 +14,13 @@ import { Component } from '@angular/core';
     animations: [
         trigger('flyInOut', [
             state('in', style({ transform: 'translateX(0)' })),
-            transition('void => *', [
+            // :enter is an alias for: void => *
+            transition(':enter', [
                 style({ transform: 'translateX(-100%)' }),
                 animate(500),
             ]),
-            transition('* => void', [
+            // :leave is an alias for: * => void
+            transition(':leave', [
                 animate(200, style({ transform: 'translateX(100%)' })),
             ]),
         ]),
