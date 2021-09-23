@@ -29,6 +29,13 @@ const routes: Routes = [
         pathMatch: 'full',
     },
     {
+        path: 'increment-decrement-stagger',
+        loadChildren: () =>
+            import(
+                './pages/increment-decrement-stagger/increment-decrement-stagger.module'
+            ).then((m) => m.IncrementDecrementStaggerModule),
+    },
+    {
         path: '**',
         redirectTo: 'open-close',
     },

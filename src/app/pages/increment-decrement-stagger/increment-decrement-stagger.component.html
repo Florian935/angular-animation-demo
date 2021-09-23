@@ -1,0 +1,21 @@
+<h2>Filter / Increment / Decrement / Stagger</h2>
+
+<form>
+    <label for="search">Search heroes: </label>
+    <input
+        type="text"
+        id="search"
+        #criteria
+        (input)="updateCriteria(criteria.value)"
+        placeholder="Search heroes"
+    />
+</form>
+
+<ul [@filterAnimation]="heroTotal" class="heroes">
+    <li *ngFor="let hero of heroes" class="hero">
+        <div class="inner">
+            <span class="badge">{{ hero.id }}</span>
+            <span>{{ hero.name }}</span>
+        </div>
+    </li>
+</ul>
