@@ -17,6 +17,13 @@ const routes: Routes = [
             ),
     },
     {
+        path: 'insert-remove',
+        loadChildren: () =>
+            import('./pages/insert-remove/insert-remove.module').then(
+                (m) => m.InsertRemoveModule
+            ),
+    },
+    {
         path: '',
         redirectTo: 'open-close',
         pathMatch: 'full',
