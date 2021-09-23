@@ -24,16 +24,23 @@ const routes: Routes = [
             ),
     },
     {
-        path: '',
-        redirectTo: 'open-close',
-        pathMatch: 'full',
-    },
-    {
         path: 'increment-decrement-stagger',
         loadChildren: () =>
             import(
                 './pages/increment-decrement-stagger/increment-decrement-stagger.module'
             ).then((m) => m.IncrementDecrementStaggerModule),
+    },
+    {
+        path: 'transition-with-boolean',
+        loadChildren: () =>
+            import(
+                './pages/transition-with-boolean/transition-with-boolean.module'
+            ).then((m) => m.TransitionWithBooleanModule),
+    },
+    {
+        path: '',
+        redirectTo: 'open-close',
+        pathMatch: 'full',
     },
     {
         path: '**',

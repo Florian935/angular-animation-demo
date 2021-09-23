@@ -1,0 +1,7 @@
+<h2>Insert/Remove with boolean</h2>
+
+<nav><button (click)="toggle()">Toggle Insert/Remove</button></nav>
+
+<div [@openClose]="isOpen ? true : false" class="open-close-container">
+    <p>The box is now {{ isOpen ? "Open" : "Closed" }}!</p>
+</div>
