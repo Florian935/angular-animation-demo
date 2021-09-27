@@ -45,6 +45,13 @@ const routes: Routes = [
             ),
     },
     {
+        path: 'open-close-pulsation',
+        loadChildren: () =>
+            import(
+                './pages/open-close-pulsation/open-close-pulsation.module'
+            ).then((m) => m.OpenClosePulsationModule),
+    },
+    {
         path: '',
         redirectTo: 'open-close',
         pathMatch: 'full',

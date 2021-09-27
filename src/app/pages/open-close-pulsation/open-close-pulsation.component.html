@@ -1,0 +1,7 @@
+<h2>Open Close Component</h2>
+
+<button (click)="toggle()">Toggle Open/Close Pulsation</button>
+
+<div [@openClose]="isOpen ? 'open' : 'close'" class="open-close-container">
+    <p>The box is now {{ isOpen ? "Open" : "Closed" }}!</p>
+</div>
