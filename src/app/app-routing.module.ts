@@ -38,6 +38,13 @@ const routes: Routes = [
             ).then((m) => m.TransitionWithBooleanModule),
     },
     {
+        path: 'status-slider',
+        loadChildren: () =>
+            import('./pages/status-slider/status-slider.module').then(
+                (m) => m.StatusSliderModule
+            ),
+    },
+    {
         path: '',
         redirectTo: 'open-close',
         pathMatch: 'full',
