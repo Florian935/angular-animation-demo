@@ -1,5 +1,27 @@
+<h2>Open Close Component</h2>
+
+<div>
+    <input
+        type="checkbox"
+        id="log-checkbox"
+        [checked]="logging"
+        (click)="toggleLogging()"
+    />
+    <label for="log-checkbox">Console Log Animation Events</label>
+</div>
+
 <button (click)="toggle()">Toggle Open/Close</button>
 
-<div [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container">
-    <p>The box is now {{ isOpen ? "Open" : "Closed" }} !</p>
+<div
+    [@openClose]="isOpen ? 'open' : 'closed'"
+    (@openClose.start)="onAnimationEvent($event)"
+    (@openClose.done)="onAnimationEvent($event)"
+    class="open-close-container"
+>
+    <p>The box is now {{ isOpen ? "Open" : "Closed" }}!</p>
 </div>
+
+<br />
+<ng-container *ngIf="isInProgress">
+    <div class="animation-in-progress">Animation in progress !</div>
+</ng-container>

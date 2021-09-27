@@ -1,5 +1,6 @@
 import {
     animate,
+    AnimationEvent,
     keyframes,
     state,
     style,
@@ -79,8 +80,40 @@ import { Component } from '@angular/core';
 })
 export class OpenCloseComponent {
     isOpen = true;
+    logging = false;
+    isInProgress = false;
 
     toggle(): void {
         this.isOpen = !this.isOpen;
+    }
+
+    toggleLogging(): void {
+        this.logging = !this.logging;
+    }
+
+    onAnimationEvent(event: AnimationEvent): void {
+        this.isInProgress = !this.isInProgress;
+
+        if (!this.logging) {
+            return;
+        }
+
+        // openClose is trigger name in this example
+        console.warn(`Animation Trigger: ${event.triggerName}`);
+
+        // phaseName is 'start' or 'done'
+        console.warn(`Phase: ${event.phaseName}`);
+
+        // in our example, totalTime is 1000 or 1 second
+        console.warn(`Total time: ${event.totalTime}`);
+
+        // in our example, fromState is either open or closed
+        console.warn(`From: ${event.fromState}`);
+
+        // in our example, toState is either open or closed
+        console.warn(`To: ${event.toState}`);
+
+        // the HTML element itself, the button in this case
+        console.warn(`Element: ${event.element}`);
     }
 }
