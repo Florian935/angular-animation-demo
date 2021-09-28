@@ -2,6 +2,8 @@
 
 <button (click)="toggle()">Toggle Open/Close</button>
 
-<div [@openClose]="isOpen ? 'open' : 'close'" class="open-close-container">
-    The box is now {{ isOpen ? "open" : "close" }}
+<div [@openClose]="isOpen ? 'open' : 'close'">
+    <div class="open-close-container">
+        The box is now {{ isOpen ? "open" : "close" }}
+    </div>
 </div>

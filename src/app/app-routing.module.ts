@@ -64,6 +64,13 @@ const routes: Routes = [
             ),
     },
     {
+        path: 'reusable-animation',
+        loadChildren: () =>
+            import('./pages/reusable-animation/reusable-animation.module').then(
+                (m) => m.ReusableAnimationModule
+            ),
+    },
+    {
         path: '',
         redirectTo: 'open-close',
         pathMatch: 'full',

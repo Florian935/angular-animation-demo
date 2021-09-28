@@ -1,6 +1,7 @@
 import {
     animate,
     group,
+    query,
     sequence,
     state,
     style,
@@ -18,7 +19,6 @@ import { Component } from '@angular/core';
             state(
                 'open',
                 style({
-                    backgroundColor: 'red',
                     height: '300px',
                     width: 200,
                 })
@@ -26,38 +26,40 @@ import { Component } from '@angular/core';
             state(
                 'close',
                 style({
-                    backgroundColor: 'blue',
                     width: 200,
                 })
             ),
             transition(
                 'open <=> close',
-                sequence([
-                    animate(
-                        '1s 0.5s ease',
-                        style({
-                            backgroundColor: 'yellow',
-                            height: 100,
-                            transform: 'translateX(50%)',
-                        })
-                    ),
-                    animate(
-                        '1s 0.5s ease',
-                        style({
-                            backgroundColor: 'green',
-                            height: 200,
-                            transform: 'translateX(-100%)',
-                        })
-                    ),
-                    animate(
-                        '1s 2s ease',
-                        style({
-                            backgroundColor: 'purple',
-                            height: 300,
-                            transform: 'translateX(0)',
-                        })
-                    ),
-                ])
+                query(
+                    'div',
+                    sequence([
+                        animate(
+                            '1s 0.5s ease',
+                            style({
+                                backgroundColor: 'yellow',
+                                height: 100,
+                                transform: 'translateX(50%)',
+                            })
+                        ),
+                        animate(
+                            '1s 0.5s ease',
+                            style({
+                                backgroundColor: 'green',
+                                height: 200,
+                                transform: 'translateX(-100%)',
+                            })
+                        ),
+                        animate(
+                            '1s 2s ease',
+                            style({
+                                backgroundColor: 'purple',
+                                height: 300,
+                                transform: 'translateX(0)',
+                            })
+                        ),
+                    ])
+                )
             ),
         ]),
     ],
