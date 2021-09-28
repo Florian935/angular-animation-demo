@@ -52,6 +52,11 @@ const routes: Routes = [
             ).then((m) => m.OpenClosePulsationModule),
     },
     {
+        path: 'groups',
+        loadChildren: () =>
+            import('./pages/groups/groups.module').then((m) => m.GroupsModule),
+    },
+    {
         path: '',
         redirectTo: 'open-close',
         pathMatch: 'full',
