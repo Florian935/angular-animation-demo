@@ -1,0 +1,11 @@
+<h2>Reusable Animation Component</h2>
+
+<button (click)="toggle()">Toggle Open/Close</button>
+
+<div
+    [@textColor]="isOpen ? 'open' : 'close'"
+    [@openClose]="isOpen ? 'open' : 'close'"
+    class="open-close-container"
+>
+    The box is now {{ isOpen ? "open" : "close" }}
+</div>

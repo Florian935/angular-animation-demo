@@ -71,6 +71,13 @@ const routes: Routes = [
             ),
     },
     {
+        path: 'reusable-trigger',
+        loadChildren: () =>
+            import('./pages/reusable-trigger/reusable-trigger.module').then(
+                (m) => m.ReusableTriggerModule
+            ),
+    },
+    {
         path: '',
         redirectTo: 'open-close',
         pathMatch: 'full',
