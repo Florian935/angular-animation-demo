@@ -57,6 +57,13 @@ const routes: Routes = [
             import('./pages/groups/groups.module').then((m) => m.GroupsModule),
     },
     {
+        path: 'sequences',
+        loadChildren: () =>
+            import('./pages/sequences/sequences.module').then(
+                (m) => m.SequencesModule
+            ),
+    },
+    {
         path: '',
         redirectTo: 'open-close',
         pathMatch: 'full',
