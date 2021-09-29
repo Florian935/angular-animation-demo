@@ -58,8 +58,16 @@ import { Hero, HEROES } from 'src/app/shared';
     ],
 })
 export class IncrementDecrementStaggerComponent implements OnInit {
+    // La directive @HostBinding permet de lier des propriétés entre
+    // le component.ts et le HTML
+    // Par exemple, ici, l'animation @pageAnimations est ajouté directement
+    // en tant que directive sur la balise <app-increment-decrement-stagger>
     @HostBinding('@pageAnimations')
     animatePage = true;
+
+    // De la même façon, on ajoute ici la classe 'class-test' à
+    // la balise <app-increment-decrement-stagger>
+    @HostBinding('class') class = 'class-test';
 
     heroTotal = -1;
     private _heroes: Array<Hero> = [];
