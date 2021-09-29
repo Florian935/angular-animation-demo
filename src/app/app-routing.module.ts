@@ -3,6 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
     {
+        path: 'home',
+        loadChildren: () =>
+            import('./pages/home/home.module').then((m) => m.HomeModule),
+        data: { animation: 'HomePage' },
+    },
+    {
+        path: 'about',
+        loadChildren: () =>
+            import('./pages/about/about.module').then((m) => m.AboutModule),
+        data: { animation: 'AboutPage' },
+    },
+    {
         path: 'open-close',
         loadChildren: () =>
             import('./pages/open-close/open-close.module').then(
@@ -29,6 +41,7 @@ const routes: Routes = [
             import(
                 './pages/increment-decrement-stagger/increment-decrement-stagger.module'
             ).then((m) => m.IncrementDecrementStaggerModule),
+        data: { animation: 'FilterPage' },
     },
     {
         path: 'transition-with-boolean',

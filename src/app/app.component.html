@@ -9,6 +9,8 @@
 <label for="animation-toggle">Toggle All Animations</label>
 
 <nav>
+    <a [routerLink]="['home']" routerLinkActive="active">Home</a>
+    <a [routerLink]="['about']" routerLinkActive="active">About</a>
     <a [routerLink]="['open-close']" routerLinkActive="active">Open/Close</a>
     <a [routerLink]="['fly-in-out']" routerLinkActive="active">Fly In/Out</a>
     <a [routerLink]="['insert-remove']" routerLinkActive="active"
@@ -36,6 +38,6 @@
     >
 </nav>
 
-<div>
-    <router-outlet></router-outlet>
+<div [@routeAnimations]="prepareRoute(outlet)">
+    <router-outlet #outlet="outlet"></router-outlet>
 </div>

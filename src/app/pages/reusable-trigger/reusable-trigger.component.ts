@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
-import {
-    borderAnimation,
-    triggerAnimation,
-} from 'src/app/shared/animations/animation';
+import { borderAnimation, triggerAnimation } from 'src/app/shared';
 
 @Component({
     selector: 'app-reusable-trigger',

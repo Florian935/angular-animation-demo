@@ -1,9 +1,12 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { slideInAnimation } from 'src/app/shared';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
+    animations: [slideInAnimation],
 })
 export class AppComponent {
     @HostBinding('@.disabled')
@@ -11,5 +14,13 @@ export class AppComponent {
 
     toggleAnimations(): void {
         this.animationsDisabled = !this.animationsDisabled;
+    }
+
+    prepareRoute(routerOutlet: RouterOutlet): string {
+        return (
+            routerOutlet &&
+            routerOutlet.activatedRouteData &&
+            routerOutlet.activatedRouteData.animation
+        );
     }
 }
