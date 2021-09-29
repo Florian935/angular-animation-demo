@@ -6,7 +6,7 @@ import {
     transition,
     trigger,
 } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { Hero, HEROES } from 'src/app/shared';
 
 @Component({
@@ -14,6 +14,19 @@ import { Hero, HEROES } from 'src/app/shared';
     templateUrl: './increment-decrement-stagger.component.html',
     styleUrls: ['./increment-decrement-stagger.component.scss'],
     animations: [
+        trigger('pageAnimations', [
+            transition(':enter', [
+                query('form, .hero', [
+                    style({ opacity: 0, transform: 'translateY(-100px)' }),
+                    stagger(-30, [
+                        animate(
+                            '500ms cubic-bezier(0.35, 0, 0.25, 1)',
+                            style({ opacity: 1, transform: 'none' })
+                        ),
+                    ]),
+                ]),
+            ]),
+        ]),
         trigger('filterAnimation', [
             transition(':enter, * => 0, * => -1', []),
             transition(':increment', [
@@ -45,6 +58,9 @@ import { Hero, HEROES } from 'src/app/shared';
     ],
 })
 export class IncrementDecrementStaggerComponent implements OnInit {
+    @HostBinding('@pageAnimations')
+    animatePage = true;
+
     heroTotal = -1;
     private _heroes: Array<Hero> = [];
 
